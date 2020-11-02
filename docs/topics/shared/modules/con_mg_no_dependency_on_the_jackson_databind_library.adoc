@@ -1,0 +1,5 @@
+[id="no_dependency_on_the_jackson_databind_library_{context}"]
+= No dependency on Jackson
+
+In {VertX} {40-Beta}, Jackson Databind is an optional Maven dependency. If you want to use this dependency, you must explicitly add it in the classpath.
+

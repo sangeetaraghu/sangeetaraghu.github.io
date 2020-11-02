@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Migration Guide</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.2"/><meta name="description" content="This guide provides information on how to upgrade your Eclipse Vert.x 3.x applications to Eclipse Vert.x 4.0 Beta."/><link rel="next" href="#idm45490904955296" title="Preface"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm45490906523792"><div class="titlepage"><div><div class="producttitle"><span class="productname">Red Hat build of Eclipse Vert.x</span> <span class="productnumber">4.0</span></div><div><h1 class="title">Migration Guide</h1></div><div><h2 class="subtitle"><h2 class="subtitle">For use with Eclipse Vert.x 4.0</h2>
+		</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm45490887826016">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
+				This guide provides information on how to upgrade your Eclipse Vert.x 3.x applications to Eclipse Vert.x 4.0 Beta.
+			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="preface"><a href="#idm45490904955296">Preface</a></span></li><li><span class="chapter"><a href="#about-vertx_vertx">1. About Eclipse Vert.x</a></span></li><li><span class="chapter"><a href="#configuring-your-application-to-use-vertx_vertx">2. Configuring your application</a></span></li></ul></div><section class="preface" id="idm45490904955296"><div class="titlepage"><div><div><h1 class="title">Preface</h1></div></div></div><p>
+			This guide describes the updates in Eclipse Vert.x 4.0 Beta release. Use the information to upgrade your Eclipse Vert.x 3.x applications to Eclipse Vert.x 4.0 Beta.
+		</p></section><section class="chapter" id="about-vertx_vertx"><div class="titlepage"><div><div><h1 class="title">Chapter 1. About Eclipse Vert.x</h1></div></div></div><p>
+			Eclipse Vert.x is a toolkit used for creating reactive, non-blocking, and asynchronous applications that run on the JVM (Java Virtual Machine). It contains several components that help you create reactive applications. It is designed to be cloud-native.
+		</p><p>
+			Since Eclipse Vert.x supports asynchronous applications it can be used to create applications with high volume of messages, large event processing, HTTP interactions, and so on.
+		</p></section><section class="chapter" id="configuring-your-application-to-use-vertx_vertx"><div class="titlepage"><div><div><h1 class="title">Chapter 2. Configuring your application</h1></div></div></div><p>
+			When you start configuring your applications to use Eclipse Vert.x, you must reference the Eclipse Vert.x BOM (Bill of Materials) artifact in the <code class="literal">pom.xml</code> file at the root directory of your application
+		</p><div class="itemizedlist"><p class="title"><strong>Prerequisites</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
+					A Maven-based application
+				</li></ul></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem"><p class="simpara">
+					Open the <code class="literal">xml</code> file, add the <code class="literal">dependencies</code> artifact to the <code class="literal">&lt;dependencyManagement&gt;</code> section,:
+				</p><pre class="programlisting language-xml">&lt;project&gt;
+  ...
+  XXXXXXXXXXXX
+  ...
+&lt;/project&gt;</pre><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+							Save the file.
+						</li></ol></div><div class="itemizedlist"><p class="title"><strong>Additional resources</strong></p><ul class="itemizedlist" type="disc"><li class="listitem">
+							For more information about packaging your Eclipse Vert.x application, see the <a class="link" href="https://vmp.fabric8.io/#packaging">Vert.x Maven Plugin</a> documentation.
+						</li></ul></div><p id="what-is-new-and-different-in-vertx-4-beta_vertx" class="simpara">
+					= Review What’s New and Changed in Eclipse Vert.x 4.0 Beta
+				</p><p class="simpara">
+					This section explains the major updates in Eclipse Vert.x 4.0 Beta release.
+				</p><p id="use-future-methods-instead-of-callback-for-asynchronous-operations_what-is-new-and-different-in-vertx-4-beta" class="simpara">
+					= Use future methods
+				</p><p class="simpara">
+					Eclipse Vert.x 4.0 Beta uses futures for asynchronous operations.
+				</p><p class="simpara">
+					The following example shows you how a callback was used for asynchronous operations in Eclipse Vert.x 3.x releases.
+				</p><pre class="screen">HttpRequest request = client.get("/resource");
+
+request.send(ar -&gt; {
+  if (ar.succeeded()) {
+    HttpResponse response = ar.result();
+  } else {
+    Throwable error = ar.cause();
+  }
+});</pre><p id="no_dependency_on_the_jackson_databind_library_what-is-new-and-different-in-vertx-4-beta" class="simpara">
+					= No dependency on Jackson
+				</p><p class="simpara">
+					In Eclipse Vert.x 4.0 Beta, Jackson Databind is an optional Maven dependency. If you want to use this dependency, you must explicitly add it in the classpath.
+				</p></li></ol></div></section><div><div xml:lang="en-US" class="legalnotice" id="idm45490887826016"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+		Copyright <span class="trademark"/>© 2020 Red Hat, Inc.
+	</div><div class="para">
+		The text of and illustrations in this document are licensed by Red Hat under a Creative Commons Attribution–Share Alike 3.0 Unported license ("CC-BY-SA"). An explanation of CC-BY-SA is available at <a class="uri" href="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0/</a>. In accordance with CC-BY-SA, if you distribute this document or an adaptation of it, you must provide the URL for the original version.
+	</div><div class="para">
+		Red Hat, as the licensor of this document, waives the right to enforce, and agrees not to assert, Section 4d of CC-BY-SA to the fullest extent permitted by applicable law.
+	</div><div class="para">
+		Red Hat, Red Hat Enterprise Linux, the Shadowman logo, the Red Hat logo, JBoss, OpenShift, Fedora, the Infinity logo, and RHCE are trademarks of Red Hat, Inc., registered in the United States and other countries.
+	</div><div class="para">
+		<span class="trademark">Linux</span>® is the registered trademark of Linus Torvalds in the United States and other countries.
+	</div><div class="para">
+		<span class="trademark">Java</span>® is a registered trademark of Oracle and/or its affiliates.
+	</div><div class="para">
+		<span class="trademark">XFS</span>® is a trademark of Silicon Graphics International Corp. or its subsidiaries in the United States and/or other countries.
+	</div><div class="para">
+		<span class="trademark">MySQL</span>® is a registered trademark of MySQL AB in the United States, the European Union and other countries.
+	</div><div class="para">
+		<span class="trademark">Node.js</span>® is an official trademark of Joyent. Red Hat is not formally related to or endorsed by the official Joyent Node.js open source or commercial project.
+	</div><div class="para">
+		The <span class="trademark">OpenStack</span>® Word Mark and OpenStack logo are either registered trademarks/service marks or trademarks/service marks of the OpenStack Foundation, in the United States and other countries and are used with the OpenStack Foundation's permission. We are not affiliated with, endorsed or sponsored by the OpenStack Foundation, or the OpenStack community.
+	</div><div class="para">
+		All other trademarks are the property of their respective owners.
+	</div></div></div></div></div></div><script type="text/javascript">
+                        jQuery(document).ready(function() {
+                            initSwitchery();
+                            jQuery('pre[class*="language-"]').each(function(i, block){hljs.highlightBlock(block);});
+                        });
+                    </script></body></html>

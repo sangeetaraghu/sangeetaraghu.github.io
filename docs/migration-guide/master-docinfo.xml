@@ -1,0 +1,11 @@
+<title>{migration-guide-book-name-vertx}</title>
+<productname>Red Hat build of {VertX}</productname>
+<productnumber>4.0</productnumber>
+<subtitle><subtitle>For use with {VertX} 4.0</subtitle></subtitle>
+<abstract>
+    <para>This guide provides information on how to upgrade your {VertX} {3x} applications to {VertX} {40-Beta}.</para>
+</abstract>
+<authorgroup>
+    <orgname>Red Hat Customer Content Services</orgname>
+</authorgroup>
+<xi:include href="Common_Content/Legal_Notice.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />

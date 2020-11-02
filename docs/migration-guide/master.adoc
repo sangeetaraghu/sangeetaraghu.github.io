@@ -1,0 +1,23 @@
+:doctype: book
+
+include::topics/shared/templates/document-attributes.adoc[]
+
+//override for a cleaner TOC
+:toclevels: 2
+
+= {migration-guide-book-name-vertx}
+//var for front-end topics, if below is defined in topic, its used in docs, if not its used in the front end
+:docs-topic:
+
+This guide describes the updates in {VertX} {40-Beta} release. Use the information to upgrade your {VertX} {3x} applications to {VertX} {40-Beta}.
+
+:runtime: {VertX}
+:context: vertx
+
+include::topics/shared/modules/con_mg-about-vertx.adoc[leveloffset=+1]
+
+include::topics/shared/modules/proc_configuring-your-application-to-use-vertx.adoc[leveloffset=+1]
+
+include::topics/shared/assemblies/assembly_mg_what-is-new-and-different-in-vertx-4-beta.adoc[leveloffset=+1]
+
+

@@ -1,0 +1,21 @@
+//DOCUMENT ATTRIBUTES FOR CLOUD-NATIVE RUNTIMES
+//TODO add numbering scheme to sections for easier orientation
+//TODO: add warning about attribute ordering, add instructions on where to add new attributes
+
+//TITLE METADATA REQUIRED BY CCS TOOLING
+//DO NOT REMOVE ANY OF THESE ATTRIBUTES
+//Standard title formatting attributes used in product docs,
+:toc:
+:toclevels: 3
+:numbered:
+:imagesdir: topics/shared/images
+
+//SPECIAL CHARACTERS
+//Unicode character substitutions used to ensure that special characters are rendered consistently
+:ndash: &#x2013;
+
+
+:VertX: Eclipse Vert.x
+:40-Beta: 4.0 Beta
+:3x: 3.x
+:migration-guide-book-name-vertx: Migration Guide

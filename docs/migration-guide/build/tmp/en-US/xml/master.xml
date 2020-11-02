@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE book [
+<!ENTITY % BOOK_ENTITIES SYSTEM "master.ent">
+%BOOK_ENTITIES;
+<!ENTITY % sgml.features "IGNORE">
+<!ENTITY % xml.features "INCLUDE">
+<!ENTITY % DOCBOOK_ENTS PUBLIC "-//OASIS//ENTITIES DocBook Character Entities V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/dbcentx.mod">
+%DOCBOOK_ENTS;
+]>
+<book version="5.0" xml:lang="en-US" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<?asciidoc-toc maxdepth="2"?><?asciidoc-numbered ?>
+	<info>
+		<title>Migration Guide</title>
+		<subtitle><subtitle>For use with Eclipse Vert.x 4.0</subtitle>
+		</subtitle>
+		 <date>2020-11-02</date>
+		<productname>Red Hat build of Eclipse Vert.x</productname>
+		<productnumber>4.0</productnumber>
+		<abstract>
+			<para>
+				This guide provides information on how to upgrade your Eclipse Vert.x 3.x applications to Eclipse Vert.x 4.0 Beta.
+			</para>
+		</abstract>
+		<xi:include href="Author_Group.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="Common_Content/Legal_Notice.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</info>
+	<preface>
+		<title>Preface</title>
+		<simpara>
+			This guide describes the updates in Eclipse Vert.x 4.0 Beta release. Use the information to upgrade your Eclipse Vert.x 3.x applications to Eclipse Vert.x 4.0 Beta.
+		</simpara>
+	</preface>
+	<chapter xml:id="about-vertx_vertx">
+		<title>About Eclipse Vert.x</title>
+		<simpara>
+			Eclipse Vert.x is a toolkit used for creating reactive, non-blocking, and asynchronous applications that run on the JVM (Java Virtual Machine). It contains several components that help you create reactive applications. It is designed to be cloud-native.
+		</simpara>
+		<simpara>
+			Since Eclipse Vert.x supports asynchronous applications it can be used to create applications with high volume of messages, large event processing, HTTP interactions, and so on.
+		</simpara>
+	</chapter>
+	<chapter xml:id="configuring-your-application-to-use-vertx_vertx">
+		<title>Configuring your application</title>
+		<simpara>
+			When you start configuring your applications to use Eclipse Vert.x, you must reference the Eclipse Vert.x BOM (Bill of Materials) artifact in the <literal>pom.xml</literal> file at the root directory of your application
+		</simpara>
+		<itemizedlist>
+			<title>Prerequisites</title>
+			<listitem>
+				<simpara>
+					A Maven-based application
+				</simpara>
+			</listitem>
+		</itemizedlist>
+		<orderedlist numeration="arabic">
+			<title>Procedure</title>
+			<listitem>
+				<simpara>
+					Open the <literal>xml</literal> file, add the <literal>dependencies</literal> artifact to the <literal>&lt;dependencyManagement&gt;</literal> section,:
+				</simpara>
+				
+<programlisting language="xml" linenumbering="unnumbered">&lt;project&gt;
+  ...
+  XXXXXXXXXXXX
+  ...
+&lt;/project&gt;</programlisting>
+				<orderedlist numeration="arabic">
+					<listitem>
+						<simpara>
+							Save the file.
+						</simpara>
+					</listitem>
+				</orderedlist>
+				<itemizedlist>
+					<title>Additional resources</title>
+					<listitem>
+						<simpara>
+							For more information about packaging your Eclipse Vert.x application, see the <link xlink:href="https://vmp.fabric8.io/#packaging">Vert.x Maven Plugin</link> documentation.
+						</simpara>
+					</listitem>
+				</itemizedlist>
+				<simpara xml:id="what-is-new-and-different-in-vertx-4-beta_vertx">
+					= Review What’s New and Changed in Eclipse Vert.x 4.0 Beta
+				</simpara>
+				<simpara>
+					This section explains the major updates in Eclipse Vert.x 4.0 Beta release.
+				</simpara>
+				<simpara xml:id="use-future-methods-instead-of-callback-for-asynchronous-operations_what-is-new-and-different-in-vertx-4-beta">
+					= Use future methods
+				</simpara>
+				<simpara>
+					Eclipse Vert.x 4.0 Beta uses futures for asynchronous operations.
+				</simpara>
+				<simpara>
+					The following example shows you how a callback was used for asynchronous operations in Eclipse Vert.x 3.x releases.
+				</simpara>
+				
+<screen>HttpRequest request = client.get("/resource");
+
+request.send(ar -&gt; {
+  if (ar.succeeded()) {
+    HttpResponse response = ar.result();
+  } else {
+    Throwable error = ar.cause();
+  }
+});</screen>
+				<simpara xml:id="no_dependency_on_the_jackson_databind_library_what-is-new-and-different-in-vertx-4-beta">
+					= No dependency on Jackson
+				</simpara>
+				<simpara>
+					In Eclipse Vert.x 4.0 Beta, Jackson Databind is an optional Maven dependency. If you want to use this dependency, you must explicitly add it in the classpath.
+				</simpara>
+			</listitem>
+		</orderedlist>
+	</chapter>
+</book>
+

@@ -1,0 +1,15 @@
+ifdef::context[:parent-context-of-what-is-new-and-different-in-vertx-4-beta: {context}]
+
+[id="what-is-new-and-different-in-vertx-4-beta_{context}"]
+= Review What's New and Changed in {VertX} {40-Beta}
+
+:context: what-is-new-and-different-in-vertx-4-beta
+
+This section explains the major updates in {VertX} {40-Beta} release.
+
+include::../modules/con_mg_use-future-methods-for-asynchronous-operations.adoc[leveloffset=+1]
+
+include::../modules/con_mg_no_dependency_on_the_jackson_databind_library.adoc[leveloffset=+1]
+
+ifdef::parent-context-of-what-is-new-and-different-in-vertx-4-beta[:context: {parent-context-of-what-is-new-and-different-in-vertx-4-beta}]
+ifndef::parent-context-of-what-is-new-and-different-in-vertx-4-beta[:!context:]

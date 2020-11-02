@@ -1,0 +1,17 @@
+= Runtimes Documentation Shared Content Repository
+
+[IMPORTANT]
+--
+DO NOT fork or clone this repository when you want to contribute to the Cloud-native Runtimes documentation.
+Use the sync scripts located in the `scripts/sync/` directory in  every repository to file a merge request for your modification to any content in the `docs/topics/shared` directory of that repository. 
+--
+
+This repository hosts documentation source content shared between titles under  Red Hat Runtimes documentation.
+This repository is inlcuded as a subtree in the repositories with individual runtime-specific guide titles.
+
+The repository contains the following directories:
+
+assemblies/:: documentation content assemblies built using content in the `modules/` directory.
+modules/:: the directory containing individual documenation modules to be included in the Runtimes documentation titles.
+ 
+

@@ -1,0 +1,28 @@
+[id='configuring-your-application-to-use-vertx_{context}']
+= Configuring your application
+
+When you start configuring your applications to use {VertX}, you must reference the {VertX} BOM (Bill of Materials) artifact in the `pom.xml` file at the root directory of your application
+
+.Prerequisites
+
+* A Maven-based application
+
+.Procedure
+
+. Open the `xml` file, add the `dependencies` artifact to the `<dependencyManagement>` section,:
++
+--
+[source,xml,options="nowrap",subs="attributes+"]
+----
+<project>
+  ...
+  XXXXXXXXXXXX
+  ...
+</project>
+----
+
+. Save the file.
+
+.Additional resources
+
+* For more information about packaging your {VertX} application, see the link:https://vmp.fabric8.io/#packaging[Vert.x Maven Plugin] documentation.
